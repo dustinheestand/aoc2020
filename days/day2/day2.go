@@ -11,7 +11,7 @@ import (
 var input sort.IntSlice
 
 func init() {
-	file, err := os.Open("input/day1.txt")
+	file, err := os.Open("input/day2.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
