@@ -4,11 +4,14 @@ import (
 	"bufio"
 	"log"
 	"os"
-	"sort"
 	"strconv"
 )
 
-var input sort.IntSlice
+type group struct {
+	people []map[rune]bool
+}
+
+var input []group
 
 func init() {
 	file, err := os.Open("input/day6.txt")
@@ -17,23 +20,51 @@ func init() {
 		log.Fatal(err)
 	}
 	scanner := bufio.NewScanner(file)
+	g := group{}
 	for scanner.Scan() {
 		txt := scanner.Text()
-		i, err := strconv.Atoi(txt)
-		if err != nil {
-			log.Fatal(err)
+		if txt == "" {
+			input = append(input, g)
+			g = group{}
+			continue
 		}
-		input = append(input, i)
+		p := map[rune]bool{}
+		for _, r := range txt {
+			p[r] = true
+		}
+		g.people = append(g.people, p)
 	}
-	input.Sort()
+	input = append(input, g)
 }
 
 // Solve1 solves.
 func Solve1() string {
-	return ""
+	var res int
+	for _, g := range input {
+		m := map[rune]bool{}
+		for _, p := range g.people {
+			for r := range p {
+				m[r] = true
+			}
+		}
+		res += len(m)
+	}
+	return strconv.Itoa(res)
 }
 
 // Solve2 solves.
 func Solve2() string {
-	return ""
+	var res int
+	for _, g := range input {
+		m := g.people[0]
+		for _, p := range g.people[1:] {
+			for r := range m {
+				if !p[r] {
+					delete(m, r)
+				}
+			}
+		}
+		res += len(m)
+	}
+	return strconv.Itoa(res)
 }
