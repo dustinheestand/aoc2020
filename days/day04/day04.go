@@ -3,7 +3,6 @@ package day04
 import (
 	"bufio"
 	"encoding/hex"
-	"fmt"
 	"log"
 	"os"
 	"regexp"
@@ -79,11 +78,8 @@ func valid(p passport) bool {
 // Solve2 solves.
 func Solve2() string {
 	var count int
-	for i, p := range input {
+	for _, p := range input {
 		if valid2(p) {
-			if i == 22 {
-				fmt.Println(p)
-			}
 			count++
 		}
 	}
@@ -119,7 +115,6 @@ func valid2(p passport) bool {
 	if match == nil {
 		return false
 	}
-	fmt.Println(match)
 	var num int
 	for i, r := range hgt {
 		if unicode.IsDigit(r) {
