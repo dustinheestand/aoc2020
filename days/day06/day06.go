@@ -1,4 +1,4 @@
-package day6
+package day06
 
 import (
 	"bufio"
@@ -14,7 +14,7 @@ type group struct {
 var input []group
 
 func init() {
-	file, err := os.Open("input/day6.txt")
+	file, err := os.Open("input/day06.txt")
 	defer file.Close()
 	if err != nil {
 		log.Fatal(err)

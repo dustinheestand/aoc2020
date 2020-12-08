@@ -1,4 +1,4 @@
-package day3
+package day03
 
 import (
 	"bufio"
@@ -15,7 +15,7 @@ type forest struct {
 var input forest
 
 func init() {
-	file, err := os.Open("input/day3.txt")
+	file, err := os.Open("input/day03.txt")
 	defer file.Close()
 	if err != nil {
 		log.Fatal(err)

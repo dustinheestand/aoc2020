@@ -1,4 +1,4 @@
-package day8
+package day08
 
 import (
 	"bufio"
@@ -11,7 +11,7 @@ import (
 var input sort.IntSlice
 
 func init() {
-	file, err := os.Open("input/day8.txt")
+	file, err := os.Open("input/day08.txt")
 	defer file.Close()
 	if err != nil {
 		log.Fatal(err)

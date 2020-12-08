@@ -1,4 +1,4 @@
-package day4
+package day04
 
 import (
 	"bufio"
@@ -17,7 +17,7 @@ type passport map[string]string
 var input []passport
 
 func init() {
-	file, err := os.Open("input/day4.txt")
+	file, err := os.Open("input/day04.txt")
 	defer file.Close()
 	if err != nil {
 		log.Fatal(err)

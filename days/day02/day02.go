@@ -1,4 +1,4 @@
-package day2
+package day02
 
 import (
 	"bufio"
@@ -7,16 +7,6 @@ import (
 	"strconv"
 	"strings"
 	"unicode/utf8"
-)
-
-type token int
-
-const (
-	eol token = iota
-	ws
-	hyphen
-	colon
-	ident
 )
 
 type password struct {
@@ -29,7 +19,7 @@ type password struct {
 var input []password
 
 func init() {
-	file, err := os.Open("input/day2.txt")
+	file, err := os.Open("input/day02.txt")
 	defer file.Close()
 	if err != nil {
 		log.Fatal(err)

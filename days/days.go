@@ -1,14 +1,15 @@
 package days
 
 import (
-	"github.com/dustinheestand/aoc2020/days/day1"
-	"github.com/dustinheestand/aoc2020/days/day2"
-	"github.com/dustinheestand/aoc2020/days/day3"
-	"github.com/dustinheestand/aoc2020/days/day4"
-	"github.com/dustinheestand/aoc2020/days/day5"
-	"github.com/dustinheestand/aoc2020/days/day6"
-	"github.com/dustinheestand/aoc2020/days/day7"
-	"github.com/dustinheestand/aoc2020/days/day8"
+	"github.com/dustinheestand/aoc2020/days/day01"
+	"github.com/dustinheestand/aoc2020/days/day02"
+	"github.com/dustinheestand/aoc2020/days/day03"
+	"github.com/dustinheestand/aoc2020/days/day04"
+	"github.com/dustinheestand/aoc2020/days/day05"
+	"github.com/dustinheestand/aoc2020/days/day06"
+	"github.com/dustinheestand/aoc2020/days/day07"
+	"github.com/dustinheestand/aoc2020/days/day08"
+	"github.com/dustinheestand/aoc2020/days/day09"
 )
 
 // Day funcs.
@@ -19,12 +20,13 @@ type Day struct {
 
 // Days is all the days.
 var Days = map[int]Day{
-	1: {day1.Solve1, day1.Solve2},
-	2: {day2.Solve1, day2.Solve2},
-	3: {day3.Solve1, day3.Solve2},
-	4: {day4.Solve1, day4.Solve2},
-	5: {day5.Solve1, day5.Solve2},
-	6: {day6.Solve1, day6.Solve2},
-	7: {day7.Solve1, day7.Solve2},
-	8: {day8.Solve1, day8.Solve2},
+	1: {day01.Solve1, day01.Solve2},
+	2: {day02.Solve1, day02.Solve2},
+	3: {day03.Solve1, day03.Solve2},
+	4: {day04.Solve1, day04.Solve2},
+	5: {day05.Solve1, day05.Solve2},
+	6: {day06.Solve1, day06.Solve2},
+	7: {day07.Solve1, day07.Solve2},
+	8: {day08.Solve1, day08.Solve2},
+	9: {day09.Solve1, day09.Solve2},
 }

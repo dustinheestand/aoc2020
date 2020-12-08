@@ -1,4 +1,4 @@
-package day7
+package day07
 
 import (
 	"bufio"
@@ -13,7 +13,7 @@ type contents map[string]int
 var input = map[string]contents{}
 
 func init() {
-	file, err := os.Open("input/day7.txt")
+	file, err := os.Open("input/day07.txt")
 	defer file.Close()
 	if err != nil {
 		log.Fatal(err)

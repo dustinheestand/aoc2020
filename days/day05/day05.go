@@ -1,4 +1,4 @@
-package day5
+package day05
 
 import (
 	"bufio"
@@ -31,7 +31,7 @@ func (ss seats) Less(i, j int) bool {
 }
 
 func init() {
-	file, err := os.Open("input/day5.txt")
+	file, err := os.Open("input/day05.txt")
 	defer file.Close()
 	if err != nil {
 		log.Fatal(err)
