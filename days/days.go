@@ -10,6 +10,7 @@ import (
 	"github.com/dustinheestand/aoc2020/days/day07"
 	"github.com/dustinheestand/aoc2020/days/day08"
 	"github.com/dustinheestand/aoc2020/days/day09"
+	"github.com/dustinheestand/aoc2020/days/day10"
 )
 
 // Day funcs.
@@ -20,13 +21,14 @@ type Day struct {
 
 // Days is all the days.
 var Days = map[int]Day{
-	1: {day01.Solve1, day01.Solve2},
-	2: {day02.Solve1, day02.Solve2},
-	3: {day03.Solve1, day03.Solve2},
-	4: {day04.Solve1, day04.Solve2},
-	5: {day05.Solve1, day05.Solve2},
-	6: {day06.Solve1, day06.Solve2},
-	7: {day07.Solve1, day07.Solve2},
-	8: {day08.Solve1, day08.Solve2},
-	9: {day09.Solve1, day09.Solve2},
+	1:  {day01.Solve1, day01.Solve2},
+	2:  {day02.Solve1, day02.Solve2},
+	3:  {day03.Solve1, day03.Solve2},
+	4:  {day04.Solve1, day04.Solve2},
+	5:  {day05.Solve1, day05.Solve2},
+	6:  {day06.Solve1, day06.Solve2},
+	7:  {day07.Solve1, day07.Solve2},
+	8:  {day08.Solve1, day08.Solve2},
+	9:  {day09.Solve1, day09.Solve2},
+	10: {day10.Solve1, day10.Solve2},
 }
