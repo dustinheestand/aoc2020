@@ -2,7 +2,6 @@ package day08
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 	"strconv"
@@ -105,7 +104,6 @@ func Solve1() string {
 
 // Solve2 solves.
 func Solve2() string {
-	res, err := input.run(0, 0, true, map[int]bool{})
-	fmt.Print(err)
+	res, _ := input.run(0, 0, true, map[int]bool{})
 	return strconv.Itoa(res)
 }
