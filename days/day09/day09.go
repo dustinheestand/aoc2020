@@ -31,22 +31,22 @@ func init() {
 func Solve1() string {
 	// How many of each sum we've seen.
 	sums := make(map[int64]int)
-	var sumsInclPos [](map[int64]bool)
+	var sumsInclPos [](map[int64]int)
 	for i, n := range input {
 		for j := 0; j < 25 && j < i; j++ {
 			s := n + input[i+j-len(sumsInclPos)]
 			sums[s]++
-			sumsInclPos[j][s] = true
+			sumsInclPos[j][s]++
 		}
-		sumsInclPos = append(sumsInclPos, map[int64]bool{})
+		sumsInclPos = append(sumsInclPos, map[int64]int{})
 		if i <= 24 {
 			continue
 		}
 		if sums[n] == 0 {
 			return strconv.Itoa(int(n))
 		}
-		for obsoleteSum := range sumsInclPos[0] {
-			sums[obsoleteSum]--
+		for obsoleteSum, count := range sumsInclPos[0] {
+			sums[obsoleteSum] -= count
 		}
 		sumsInclPos = sumsInclPos[1:]
 	}
