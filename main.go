@@ -25,6 +25,6 @@ func main() {
 	}
 	for i := 1; i <= len(days.Days); i++ {
 		d := days.Days[i]
-		fmt.Printf("Day %02d  Part 1: %10v    Part 2: %10v\n", i, d.Solve1(), d.Solve2())
+		fmt.Printf("Day %02d  Part 1: %15v    Part 2: %15v\n", i, d.Solve1(), d.Solve2())
 	}
 }
