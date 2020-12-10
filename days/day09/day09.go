@@ -33,22 +33,22 @@ func Solve1() string {
 	sums := make(map[int64]int)
 	var sumsInclPos [](map[int64]bool)
 	for i, n := range input {
-		sumsWithI := make(map[int64]bool)
-		for j := i + 1; j < len(input) && j-i < 25; j++ {
-			s := n + input[j]
+		for j := 0; j < 25 && j < i; j++ {
+			s := n + input[i+j-len(sumsInclPos)]
 			sums[s]++
-			sumsWithI[s] = true
+			sumsInclPos[j][s] = true
 		}
-		sumsInclPos = append(sumsInclPos, sumsWithI)
+		sumsInclPos = append(sumsInclPos, map[int64]bool{})
 		if i <= 24 {
 			continue
 		}
 		if sums[n] == 0 {
 			return strconv.Itoa(int(n))
 		}
-		for obsoleteSum := range sumsInclPos[i-25] {
+		for obsoleteSum := range sumsInclPos[0] {
 			sums[obsoleteSum]--
 		}
+		sumsInclPos = sumsInclPos[1:]
 	}
 	return ""
 }
