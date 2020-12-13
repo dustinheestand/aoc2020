@@ -4,42 +4,28 @@ import (
 	"bufio"
 	"log"
 	"os"
+	"sort"
 	"strconv"
-	"strings"
 )
 
-var input schedule
-
-type schedule struct {
-	tm    int
-	buses []int
-}
+var input sort.IntSlice
 
 func init() {
-	file, err := os.Open("input/day14test.txt")
+	file, err := os.Open("input/day01.txt")
 	defer file.Close()
 	if err != nil {
 		log.Fatal(err)
 	}
 	scanner := bufio.NewScanner(file)
-	scanner.Scan()
-	fst := scanner.Text()
-	i, err := strconv.Atoi(fst)
-	if err != nil {
-		log.Fatal(err)
-	}
-	input.tm = i
-	scanner.Scan()
-	bs := scanner.Text()
-	fs := strings.FieldsFunc(bs, func(r rune) bool { return r == ',' })
-	for _, f := range fs {
-		i, err := strconv.Atoi(f)
+	for scanner.Scan() {
+		txt := scanner.Text()
+		i, err := strconv.Atoi(txt)
 		if err != nil {
-			input.buses = append(input.buses, 0)
-		} else {
-			input.buses = append(input.buses, i)
+			log.Fatal(err)
 		}
+		input = append(input, i)
 	}
+	input.Sort()
 }
 
 // Solve1 solves.
