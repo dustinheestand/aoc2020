@@ -2,6 +2,7 @@ package day15
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"os"
 	"sort"
@@ -30,34 +31,10 @@ func init() {
 
 // Solve1 solves.
 func Solve1() string {
-	i, j := 0, len(input)-1
-	for {
-		a, b := input[i], input[j]
-		if a+b < 2020 {
-			i++
-		} else if a+b > 2020 {
-			j--
-		} else {
-			return strconv.Itoa(a + b)
-		}
-	}
+	return fmt.Sprint("")
 }
 
 // Solve2 solves.
 func Solve2() string {
-	for end := len(input) - 1; ; end-- {
-		i, j := 0, end-1
-		stable := input[end]
-		target := 2020 - stable
-		for i < j {
-			a, b := input[i], input[j]
-			if a+b < target {
-				i++
-			} else if a+b > target {
-				j--
-			} else if a+b == target {
-				return strconv.Itoa(a * b * stable)
-			}
-		}
-	}
+	return fmt.Sprint("")
 }
