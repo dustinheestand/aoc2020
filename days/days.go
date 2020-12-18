@@ -19,6 +19,7 @@ import (
 	"github.com/dustinheestand/aoc2020/days/day16"
 	"github.com/dustinheestand/aoc2020/days/day17"
 	"github.com/dustinheestand/aoc2020/days/day18"
+	"github.com/dustinheestand/aoc2020/days/day19"
 )
 
 // Day funcs.
@@ -47,4 +48,5 @@ var Days = map[int]Day{
 	16: {day16.Solve1, day16.Solve2},
 	17: {day17.Solve1, day17.Solve2},
 	18: {day18.Solve1, day18.Solve2},
+	19: {day19.Solve1, day19.Solve2},
 }
