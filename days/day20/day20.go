@@ -67,18 +67,6 @@ func init() {
 	input[key] = t
 }
 
-type seek struct {
-	side [10]bool
-	x, y int
-}
-
-var sideFuncs = map[string](func(tile, int, int) ([10]bool, int, int)){
-	"top":    func(t tile, x, y int) ([10]bool, int, int) { return t[0], x, y - 1 },
-	"bottom": func(t tile, x, y int) ([10]bool, int, int) { return t[9], x, y + 1 },
-	"right":  func(t tile, x, y int) ([10]bool, int, int) { return t.rightSide(), x + 1, y },
-	"left":   func(t tile, x, y int) ([10]bool, int, int) { return t.leftSide(), x - 1, y },
-}
-
 // Solve1 solves.
 func Solve1() string {
 	sides := make(map[[10]bool][]string)
