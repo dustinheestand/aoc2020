@@ -134,16 +134,6 @@ func (t tile) rotate90() tile {
 	return res
 }
 
-func (t tile) flipVert() tile {
-	res := tile{}
-	for i, r := range t {
-		for j, b := range r {
-			res[9-i][j] = b
-		}
-	}
-	return res
-}
-
 func (t tile) flipHoriz() tile {
 	res := tile{}
 	for i, r := range t {
@@ -182,16 +172,6 @@ func (img image) rotate90() image {
 	for i, r := range img {
 		for j, b := range r {
 			res[j][rowsPerImage-1-i] = b
-		}
-	}
-	return res
-}
-
-func (img image) flipVert() image {
-	res := image{}
-	for i, r := range img {
-		for j, b := range r {
-			res[rowsPerImage-1-i][j] = b
 		}
 	}
 	return res
