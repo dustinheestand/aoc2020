@@ -9,7 +9,11 @@ import (
 	"strings"
 )
 
-var input []recipe
+var (
+	input          []recipe
+	allAllergens   map[string](map[string]bool)
+	maybeAllergens map[string]bool
+)
 
 type recipe struct {
 	ingredients map[string]bool
@@ -22,6 +26,8 @@ func init() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	allAllergens = make(map[string](map[string]bool))
+	maybeAllergens = make(map[string]bool)
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		txt := scanner.Text()
@@ -38,11 +44,7 @@ func init() {
 		}
 		input = append(input, r)
 	}
-}
 
-// Solve1 solves.
-func Solve1() string {
-	allAllergens := make(map[string](map[string]bool))
 	for _, r := range input {
 		for a := range r.allergens {
 			if allergens, ok := allAllergens[a]; !ok {
@@ -59,14 +61,15 @@ func Solve1() string {
 			}
 		}
 	}
-
-	maybeAllergens := make(map[string]bool)
 	for _, is := range allAllergens {
 		for i := range is {
 			maybeAllergens[i] = true
 		}
 	}
+}
 
+// Solve1 solves.
+func Solve1() string {
 	res := 0
 	for _, r := range input {
 		for i := range r.ingredients {
@@ -80,31 +83,6 @@ func Solve1() string {
 
 // Solve2 solves.
 func Solve2() string {
-	allAllergens := make(map[string](map[string]bool))
-	for _, r := range input {
-		for a := range r.allergens {
-			if allergens, ok := allAllergens[a]; !ok {
-				allAllergens[a] = map[string]bool{}
-				for i := range r.ingredients {
-					allAllergens[a][i] = true
-				}
-			} else {
-				for a := range allergens {
-					if !r.ingredients[a] {
-						delete(allergens, a)
-					}
-				}
-			}
-		}
-	}
-
-	maybeAllergens := make(map[string]bool)
-	for _, is := range allAllergens {
-		for i := range is {
-			maybeAllergens[i] = true
-		}
-	}
-
 	seen := make(map[string]string)
 	for len(seen) < 8 {
 		for a, is := range allAllergens {
