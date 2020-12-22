@@ -116,7 +116,7 @@ func play(decks [][]int, seen map[hashes]struct{}) bool {
 			strs.p0 += hash([]int{a, b})
 		} else {
 			decks[1] = append(decks[1], []int{b, a}...)
-			strs.p1 += hash([]int{a, b})
+			strs.p1 += hash([]int{b, a})
 		}
 	}
 
