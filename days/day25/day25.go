@@ -5,11 +5,10 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"sort"
 	"strconv"
 )
 
-var input sort.IntSlice
+var input []int
 
 func init() {
 	file, err := os.Open("input/day25.txt")
@@ -26,12 +25,28 @@ func init() {
 		}
 		input = append(input, i)
 	}
-	input.Sort()
 }
 
 // Solve1 solves.
 func Solve1() string {
-	return fmt.Sprint("")
+	loopSizes := [2]int{}
+	sn := 7
+	for i, key := range input {
+		try := 1
+		size := 0
+		for try != key {
+			try *= sn
+			try %= 20201227
+			size++
+		}
+		loopSizes[i] = size
+	}
+	res := int64(1)
+	for i := 0; i < loopSizes[1]; i++ {
+		res *= int64(input[0])
+		res %= 20201227
+	}
+	return fmt.Sprint(res)
 }
 
 // Solve2 solves.
