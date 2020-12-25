@@ -54,22 +54,12 @@ func Solve1() string {
 	for _, e := range input {
 		var stack []symbol
 		for _, r := range e {
-			if unicode.IsDigit(r) && (len(stack) == 0 || stack[len(stack)-1].rn() == '(') {
+			if unicode.IsDigit(r) {
 				stack = append(stack, sInt(int(r)-48))
 			} else if r == '+' || r == '*' || r == '(' {
 				stack = append(stack, sRune(r))
 			} else if r == ')' {
 				stack = append(stack[:len(stack)-2], stack[len(stack)-1])
-			} else if unicode.IsDigit(r) {
-				n := int(r) - 48
-				op := stack[len(stack)-1]
-				arg := stack[len(stack)-2]
-				stack = stack[:len(stack)-2]
-				if op.rn() == '+' {
-					stack = append(stack, sInt(arg.num()+n))
-				} else if op.rn() == '*' {
-					stack = append(stack, sInt(arg.num()*n))
-				}
 			}
 			for len(stack) >= 3 && stack[len(stack)-3].num() > 0 && stack[len(stack)-1].num() > 0 && stack[len(stack)-2].rn() != '!' {
 				a, b, op := stack[len(stack)-3].num(), stack[len(stack)-1].num(), stack[len(stack)-2].rn()
@@ -92,7 +82,7 @@ func Solve2() string {
 	for _, e := range input {
 		var stack []symbol
 		for _, r := range e {
-			if unicode.IsDigit(r) && (len(stack) == 0 || stack[len(stack)-1].rn() == '(' || stack[len(stack)-1].rn() == '*') {
+			if unicode.IsDigit(r) {
 				stack = append(stack, sInt(int(r)-48))
 			} else if r == '+' || r == '*' || r == '(' {
 				stack = append(stack, sRune(r))
@@ -103,14 +93,6 @@ func Solve2() string {
 					stack = append(stack, sInt(a*b))
 				}
 				stack = append(stack[:len(stack)-2], stack[len(stack)-1])
-			} else if unicode.IsDigit(r) {
-				n := int(r) - 48
-				op := stack[len(stack)-1]
-				if op.rn() == '+' {
-					arg := stack[len(stack)-2]
-					stack = stack[:len(stack)-2]
-					stack = append(stack, sInt(arg.num()+n))
-				}
 			}
 			for len(stack) >= 3 && stack[len(stack)-3].num() > 0 && stack[len(stack)-1].num() > 0 && stack[len(stack)-2].rn() == '+' {
 				a, b := stack[len(stack)-3].num(), stack[len(stack)-1].num()
